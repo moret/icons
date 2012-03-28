@@ -28,17 +28,16 @@ br_size = ci_size
 br_outer = '#16B83E'
 br_middle = '#FFE11F'
 br_inner = '#1651B8'
-br_step = br_size / 16
-br_mtl = 3 * br_step
-br_mbr = br_size - 3 * br_step
-br_itl = 5 * br_step
-br_ibr = br_size - 5 * br_step
-
-rect_middle = [(br_mtl, br_mtl), (br_mbr, br_mbr)]
-rect_inner = [(br_itl, br_itl), (br_ibr, br_ibr)]
+br_is = 2
 
 br = Image.new('RGB', (br_size, br_size), br_outer)
 brd = ImageDraw.Draw(br)
-brd.rectangle(rect_middle, outline=br_middle, fill=br_middle)
-brd.rectangle(rect_inner, outline=br_inner, fill=br_inner)
+
+brd.polygon([(0, br_size), (br_size, 0), (br_size, br_size)],
+        outline=br_middle, fill=br_middle)
+
+brd.ellipse((br_size - br_size / br_is, br_size - br_size / br_is,
+        br_size + br_size / br_is, br_size + br_size / br_is),
+        outline=br_inner, fill=br_inner)
+
 br.save('br.png')
