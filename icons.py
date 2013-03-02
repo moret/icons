@@ -30,6 +30,8 @@ def green_cross():
 def ambar_cross():
     cross('ambar', '#F80')
 
+def ambar_cross_lb():
+    cross('ambar-lb', '#F80', '#272822')
 
 def br_flag():
     br_size = ci_size
@@ -53,4 +55,5 @@ def br_flag():
 
 green_cross()
 ambar_cross()
+ambar_cross_lb()
 br_flag()
